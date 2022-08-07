@@ -1,0 +1,72 @@
+inK = [0, 4, 152, 225, 368, 371, 564, 597, 611, 645, 702, 844, 3024, 3047, 3072, 3346, 3363, 3753, 3756, 3799, 3813, 3831] # floss numbers needed for K's project
+
+inC = [9, 35, 150, 166, 301, 310, 550, 597, 732, 782, 796, 833, 906, 915, 3350, 3753] # floss numbers needed for C's project
+
+have = [] # all floss owned
+
+needK = [] # floss needed for K's project
+haveK = []
+
+needC = [] # floss needed for C's project
+haveC = []
+
+
+if __name__ == "__main__":
+  
+  while input("Want to enter a DMC floss number? [y/n] ") == "y":
+
+    floss = int(input("Number: "))
+
+    if floss in have:
+      print('Already entered')
+      
+    else:
+      # add floss to have list
+      have.append(floss)
+  
+      # check if floss needed for a project
+      if floss in inK or floss in inC:
+        print('Needed for a project')
+      else:
+        print('Not needed for a project')
+        
+      
+    print(" ")
+
+    
+  # check for values needed that aren't in 'have'
+  for num in inK:
+    if num not in have:
+      needK.append(num)
+    else:
+      haveK.append(num)
+
+  for num in inC:
+    if num not in have:
+      needC.append(num)
+    else:
+      haveC.append(num)
+
+  print(' ')
+  print('Needed for K: ', needK, len(needK), 'colors')
+  print('Have ', len(haveK), haveK)
+  print(' ')
+  print('Needed for C: ', needC, len(needC), 'colors')
+  print('Have ', len(haveC), haveC)
+  print(' ')
+  print('Have: ', have, len(have), 'total colors')
+
+
+'''
+
+RESULTS
+
+Needed for K:  [0, 4, 152, 225, 368, 371, 564, 597, 611, 645, 844, 3024, 3363, 3753, 3756, 3799, 3813, 3831] 18 colors
+Have  4 [702, 3047, 3072, 3346]
+
+Needed for C:  [9, 35, 150, 166, 597, 732, 782, 833, 906, 915, 3753] 11 colors
+Have  5 [301, 310, 550, 796, 3350]
+
+Have:  [301, 311, 312, 316, 754, 948, 543, 842, 437, 317, 318, 3755, 319, 320, 321, 322, 334, 367, 300, 3835, 3823, 841, 3829, 436, 796, 797, 798, 799, 700, 3046, 3045, 435, 420, 839, 801, 781, 938, 840, 3348, 744, 745, 746, 743, 3072, 309, 350, 351, 434, 550, 727, 772, 349, 3830, 326, 3777, 725, 433, 895, 742, 352, 921, 726, 722, 335, 210, 304, 3047, 3078, 701, 703, 704, 791, 794, 793, 211, 333, 340, 208, 209, 792, 775, 699, 3345, 3346, 702, 3747, 818, 776, 762, 5200, 931, 934, 954, 957, 958, 959, 976, 977, 987, 991, 992, 909, 910, 911, 912, 913, 3347, 3807, 3847, 3825, 783, 778, 3849, 3328, 3350, 3716, 3326, 3708, 3712, 347, 899, 3752, 341, 3776, 3750, 3283, 3325, 729, 310, 712, 353, 738, 945, 739] 134 total colors
+
+'''
